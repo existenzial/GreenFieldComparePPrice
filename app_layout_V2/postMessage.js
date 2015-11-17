@@ -10,7 +10,7 @@ ngular.module("froogie")
             //array of user information. Unnecessary as we will have a database
               $scope.display = [];
               //loop through users information. This assumes the data we want is in response.data
-
+//f
               for (var i = 0; i < response.data.length; i++){
                 //format user's information. Assumes the id, name, email are properties. Can modify, will need proprety of message  however that users data is going to be formated. 
                 var wholeUser = "Id:" + response.data[i].id +" Name: " + response.data[i].name + " Email: " + response.data[i].email ;
