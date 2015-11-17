@@ -17,14 +17,11 @@
 <!-- Header Begin -->
     <header>
         <h1 class="font-effect-destruction font-effect-shadow-multiple">Boot/ed</h1>
-
     <div align="right" class="main-div jumbotron">
         <h2 align="right">Do the Homework</h2>
         <p align="right">plan your future.</p>
-
     </div>
     </header>
-    
     <div id="main">
 	<!-- The navigation menu will get the value of the "active" variable as a class.
 		 The $event.preventDefault() stops the page from jumping when a link is clicked. -->
@@ -41,38 +38,19 @@
 		 initially, first paragraph will display. -->
 	   <p ng-hide="active">Train hard and get it done</p>
 	   <p ng-show="active">Is To Believe in You</p>
-       
+        <!-- Insert top returned li results between emphasis<em> tags maybe? -->    
     </div>
-    
-    <!-- Initializes new search controller and associates it with "boote" module-->
-<!--    <div ng-controller="InstantSearchController">-->
-
-<!--
-	<div class="bar">
-		 Creates binding between searchString model and text field, figure out how to include images in search box. Is it possible?? 
-		<input type="text" ng-model="searchString" placeholder="  plan your future..."/>
-	</div>
--->
-
-	<ul ng-controller="bootListController">
-		<!-- Renders a li element for every entry in the returned items array. 
-			 Custom search filter "searchFor" takes the value of the
-			 searchString model as an argument.
-		 -->
-		<li ng-repeat="b in bootcampList">
-			<a href="{{b.url}}"><img ng-src="{{b.image}}" /></a>
-            <!-- paragraph below should display title of item w/pic & url-->
-			<p>{{b.title}}</p>
-		</li>
-	</ul>
-</div>
-    
-    <!-- Fun Script Below For Users Opening The Console -->
-    <script>
-        if (window.console){
-            console.log('Hey human! we want MORE of your kid of people. Come join us - https://booted.com/careers');
-        }
-    </script>
-    
+<!--  Begin of Signin -->
+    <div class="container">
+        <div class="jumbotron" style="padding-bottom:0px;">
+            <h2>Log In</h2>
+        </div>
+        <form class="form-signin" role="form">
+            <input type="email" class="form-control" placeholder="Email address" required="" autofocus="">
+            <input type="password" class="form-control" placeholder="Password" required="">
+            <a href="./register.html"><button type="button" class="btn btn-lg btn-primary btn-block">Register</button></a>
+      </form>
+ 
+    </div>
 </body>
 </html>

@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="appstylesheet.css">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Alfa+Slab+One&effect=destruction|shadow-multiple|wallpaper">
+
 <!-- Scripts/Libraries -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
@@ -17,14 +18,11 @@
 <!-- Header Begin -->
     <header>
         <h1 class="font-effect-destruction font-effect-shadow-multiple">Boot/ed</h1>
-
     <div align="right" class="main-div jumbotron">
         <h2 align="right">Do the Homework</h2>
         <p align="right">plan your future.</p>
-
     </div>
     </header>
-    
     <div id="main">
 	<!-- The navigation menu will get the value of the "active" variable as a class.
 		 The $event.preventDefault() stops the page from jumping when a link is clicked. -->
@@ -41,38 +39,39 @@
 		 initially, first paragraph will display. -->
 	   <p ng-hide="active">Train hard and get it done</p>
 	   <p ng-show="active">Is To Believe in You</p>
-       
+        <!-- Insert top returned li results between emphasis<em> tags maybe? -->    
     </div>
-    
-    <!-- Initializes new search controller and associates it with "boote" module-->
-<!--    <div ng-controller="InstantSearchController">-->
-
-<!--
-	<div class="bar">
-		 Creates binding between searchString model and text field, figure out how to include images in search box. Is it possible?? 
-		<input type="text" ng-model="searchString" placeholder="  plan your future..."/>
-	</div>
--->
-
-	<ul ng-controller="bootListController">
-		<!-- Renders a li element for every entry in the returned items array. 
-			 Custom search filter "searchFor" takes the value of the
-			 searchString model as an argument.
-		 -->
-		<li ng-repeat="b in bootcampList">
-			<a href="{{b.url}}"><img ng-src="{{b.image}}" /></a>
-            <!-- paragraph below should display title of item w/pic & url-->
-			<p>{{b.title}}</p>
-		</li>
-	</ul>
-</div>
-    
-    <!-- Fun Script Below For Users Opening The Console -->
-    <script>
-        if (window.console){
-            console.log('Hey human! we want MORE of your kid of people. Come join us - https://booted.com/careers');
-        }
-    </script>
-    
+<!--  Begin of Signin -->
+    <div class="container">
+        <div class="jumbotron" style="padding-bottom:0px;">
+            <h2>Create An Account</h2>
+        </div>
+            <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <label for="inputName3" class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-4">
+          <input class="form-control" id="inputName3" placeholder="Name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-4">
+          <input class="form-control" id="inputEmail3" placeholder="Email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-4">
+          <input class="form-control" id="inputPassword3" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-success">Sign up</button>
+        </div>
+      </div>
+    </form>
+ 
+    </div>
 </body>
 </html>
