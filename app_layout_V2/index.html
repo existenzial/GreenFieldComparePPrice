@@ -14,18 +14,24 @@
     <!-- ng-app Declared -->
 <body ng-app="booted">
     <script src="app.js"></script>
+    <script src="FakeVotingNotWorthy.js"></script>
 <!-- Header Begin -->
     <header>
-        <h1 class="font-effect-destruction font-effect-shadow-multiple">Booted</h1>
+        <h1 class="font-effect-destruction font-effect-shadow-multiple">Boot/ed</h1>
+
     <div align="right" class="main-div jumbotron">
         <h2 align="right">Do the Homework</h2>
         <p align="right">plan your future.</p>
-        <div>
-<!-- Sign-In Button -->
-        <a href="./signin.html"><button type="button" class="btn btn-default navbar">Sign in</button></a>
+        <div ng-controller="FakeVotingNotWorthyCtrl">
+            <button ng-click="love = love + 1">Do you Loves?</button>
+            <div>
+                Loves!  {{love}}
+            </div>
         </div>
+
     </div>
     </header>
+    
     <div id="main">
     <!-- The navigation menu will get the value of the "active" variable as a class.
          The $event.preventDefault() stops the page from jumping when a link is clicked. -->
@@ -33,9 +39,7 @@
        <nav class="{{active}}" ng-click="$event.preventDefault()">
         <!-- When a link in the menu is clicked, we set the active variable -->
            <h2>
-           <a href="#" class="vote" ng-click="active='vote'">Vote</a>
-           <a href="#" class="list" ng-click="active='list'">List</a>
-           <a href="#" class="comment" ng-click="active='comment'">Comment</a>
+           <a href="#" class="about" ng-click="active='about'">Our Mission</a
             </h2>
        </nav>
 
@@ -43,12 +47,12 @@
          & ng-hide does the opposite. If active variable is not set
          initially, first paragraph will display. -->
        <p ng-hide="active">Train hard and get it done</p>
-       <p ng-show="active">We Believe in You</p>
-        <!-- Insert top returned li results between emphasis<em> tags maybe? -->    
+       <p ng-show="active">Is To Believe in You</p>
+       
     </div>
     
     <!-- Initializes new search controller and associates it with "boote" module-->
-    <div ng-controller="InstantSearchController">
+<!--    <div ng-controller="InstantSearchController">-->
 
 <!--
     <div class="bar">
@@ -56,17 +60,17 @@
         <input type="text" ng-model="searchString" placeholder="  plan your future..."/>
     </div>
 -->
-
-    <ul>
+    
+    <!-- <ul ng-controller="bootListController"> -->
         <!-- Renders a li element for every entry in the returned items array. 
              Custom search filter "searchFor" takes the value of the
              searchString model as an argument.
          -->
-        <li ng-repeat="b in bootcampList">
-            <a href="{{b.url}}"><img ng-src="{{b.image}}" /></a>
-            <!-- paragraph below should display title of item w/pic & url-->
+         <!-- <li ng-repeat="b in bootcampList">
+            <a href="{{b.url}}"><img ng-src="{{b.image}}" /></a> -->
+            <!-- paragraph below should display title of item w/pic & url
             <p>{{b.title}}</p>
-        </li>
+        </li> -->
     </ul>
 </div>
     
