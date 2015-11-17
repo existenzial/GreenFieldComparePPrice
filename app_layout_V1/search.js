@@ -1,4 +1,4 @@
-angular.module('searchApp', [])
+angular.module('froogie', [])
     .config()
     .controller('SearchCtrl', function($scope, $http){
         $scope.url = 'http'; // The url should be either the UPC or tapping into the Image_Search_API
@@ -13,7 +13,7 @@ angular.module('searchApp', [])
             success(function(data, status) {
                 $scope.status = status;
                 $scope.data = data;
-                $scope.result = data; // Show result from server in our <pre></pre> element
+                $scope.productlist = data; // Show product-list customSearch API in our <pre></pre> element
             })
             .
             error(function(data, status) {

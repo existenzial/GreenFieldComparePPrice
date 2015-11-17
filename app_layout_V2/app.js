@@ -1,5 +1,5 @@
 // Defines module for app. If there are dependencies, insert into array
-var app = angular.module("froogie", []);
+var app = angular.module("booted", []);
 
 // Search filter, to be used with returned Google CS API request results
 
@@ -18,10 +18,10 @@ app.filter('searchFor', function(){
 		searchString = searchString.toLowerCase(); //aesthetic enhancement for search box
 
 		// forEach to loop through the array of unfiltered data, taking in each item
-		angular.forEach(arr, function(item){
+		angular.forEach(arr, function(bootcamp){
             //if the title of the item matches the searchString, push it to the results array
-			if(item.title.toLowerCase().indexOf(searchString) !== -1){
-				results.push(item);
+			if(bootcamp.title.toLowerCase().indexOf(searchString) !== -1){
+				results.push(bootcamp);
 			}
 		});
 		return results;
@@ -33,13 +33,18 @@ app.filter('searchFor', function(){
 
 function InstantSearchController($scope){
 
-	//Data models below. Requested via Google CS API. Hardcoded Test Example included. 
+	//Data models below. Hardcoded Test Example included. 
 
-	$scope.items = [
+	$scope.bootcampList = [
 		{
-			url: 'http://google.com',
-			title: 'Default Google Test',
-			image: 'http://cdn.tutorialzine.com/wp-content/uploads/2013/07/featured_4-100x100.jpg'
+			url: 'http://telegraphacademy.com',
+			title: 'Telegraph Academy',
+			image: './images/bootcamp_images/tga.png'
+		},
+        {
+			url: 'http://hackreactor.com',
+			title: 'Hack Reactor',
+			image: './images/bootcamp_images/hackreactor.png'
 		}
 	];
 

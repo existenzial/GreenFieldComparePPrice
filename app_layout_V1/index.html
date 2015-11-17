@@ -18,7 +18,7 @@
 	<script src="search.js"></script>
 </head>
 
-<body ng-app="searchApp">
+<body ng-app="froogie">
 <!-- Header Begin -->
     <header>
         <h1 class="font-effect-shadow-multiple">Froogie</h1>
@@ -40,20 +40,23 @@
             <button type="submit" class="btn btn-default  navbar-btn navbar-left" ng-click="search()">Submit</button>
                 
                 
-<!-- jQuery Script to Slide Down Results On Submit Below -->
+<!-- jQuery Script to Slide Down {{productlist}} On Submit Below -->
             <script>
             $('.btn').on('submit', function () {
-              if ( $( "{{product-list}}" ).is( ":hidden" ) ) {
+              if ( $( "{{productlist}}" ).is( ":hidden" ) ) {
                 $( "div" ).slideDown( "slow" );
               } else {
                 $( "div" ).hide();
               }
             });
         </script>
+                {{productlist}}
 <!-- Angular Model Of Results -->
+<!--
             <pre ng-model="product-list">
                 {{product-list}}
-            </pre>
+-->
+<!--            </pre>-->
 <!-- The list of products available to buy from online results returned from Google CS API should appear here -->
             </div>
         </form>
@@ -62,7 +65,7 @@
 <!-- Fun Script Below For Users Opening The Console -->
     <script>
         if (window.console){
-            console.log('Hey human! we want MORE of your kid of people. Come join us - https://froogie.com/careers');
+            console.log('Hey human! we want MORE of your kind of people. Come join us - https://froogie.com/careers');
         }
     </script>
 <!-- Start of Footer/Page-Bottom   -->
