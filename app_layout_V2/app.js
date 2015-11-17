@@ -1,6 +1,5 @@
 // Defines module for app. If there are dependencies, insert into array
-var app = angular.module("froogie", []);
-
+var app = angular.module("froogie", ['ui.router']);
 // Search filter, to be used with returned Google CS API request results
 
 app.filter('searchFor', function(){
