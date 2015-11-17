@@ -4,6 +4,10 @@ var mongojs = require('mongojs');
 var databaseUrl = 'database';
 var collections = ['mainComments'];
 var db = mongojs(databaseUrl, collections);
+//J:added session for log in. 
+var session = require('express-session');
+//J:added utils for log in. 
+var utils = require("../app_layout_V2/utils.js");
 
 
 var app = express();
