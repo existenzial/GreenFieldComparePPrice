@@ -41,19 +41,18 @@
        
     </div>
    
+    <script src="../FakeVotingNotWorthy.js"></script>
+    <center>
+        <img src="../images/bootcamp_images/devboot.png">
+        <h3>19-week immersive course focusing on multiple languages to give you a competitive edge</h3>
+        <div ng-controller="FakeVotingNotWorthyCtrl">
+            <button class=".btn" ng-click="love = love + 1">Show The Love</button>
+            <div>
+                Loves:  {{love}}
+            </div>
+        </div>
+    </center>
 
-	<ul ng-controller="bootListController">
-		<!-- Renders a li element for every entry in the returned items array. 
-			 Custom search filter "searchFor" takes the value of the
-			 searchString model as an argument.
-		 -->
-		<li ng-model="b in bootcampList">
-			<a href="{{b.url}}"><img ng-src="{{b.image}}" /><p>{{b.title}}</p></a>
-            <!-- paragraph below should display title of item w/pic & url-->
-			
-		</li>
-	</ul>
-</div>
 
 </body>
 </html>
