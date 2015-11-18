@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <link rel="shortcut icon" type="image/png" href="../images/076953-black-ink-grunge-stamp-textures-icon-business-cart-solid.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="appstylesheet.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Indie+Flower&effect=destruction|shadow-multiple|wallpaper">
+</head>
+    
+<body>
+<!-- Header Begin -->
+    <header>
+        <h1 class="font-effect-wallpaper font-effect-shadow-multiple">Hack Reactor</h1>
+    <div align="right" class="main-div jumbotron">
+        <h2 align="right">for Every Human</h2>
+        <p align="right">save your scratch.</p>
+<!-- Sign-In Button -->
+            <button type="button" class="btn btn-default navbar">Sign in</button>
+    </header>
+<!-- Scripts/Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+<script src="Voting.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <!-- ng-app Declared -->
+    <div id="main" ng-app="froogie">
+    <!-- The navigation menu will get the value of the "active" variable as a class.
+         The $event.preventDefault() stops the page from jumping when a link is clicked. -->
+        
+       <nav class="{{active}}" ng-click="$event.preventDefault()">
+        <!-- When a link in the menu is clicked, we set the active variable -->
+           <a href="#" class="favorites" ng-click="active='favorites'">Favorites</a>
+           <a href="#" class="browse" ng-click="active='browse'">Browse</a>
+           <a href="#" class="account" ng-click="active='account'">Account</a>
+       </nav>
+
+       <!-- ng-show will show an element if the value in the quotes is truthful,
+         & ng-hide does the opposite. If active variable is not set
+         initially, first paragraph will display. -->
+       <p ng-hide="active">scan it, buy it...done</p>
+       <p ng-show="active">Wanna Buy It? <em></em></p>
+        <!-- Insert top returned li results between emphasis<em> tags maybe? -->  
+       <!-- <div ng-controller="VotingCtrl"> -->
+           
+
+       </div>   
+    </div>
+    
+    <script src="app.js"></script>
+    <!-- Initializes new search controller and associates it with "froogie" module-->
+    <div ng-app="froogie" ng-controller="InstantSearchController">
+
+    <div class="bar">
+        <!-- Creates binding between searchString model and text field, figure out how to include images in search box. Is it possible?? -->
+        <input type="text" ng-model="searchString" placeholder="scan it, buy it...done" />
+    </div>
+
+    <ul>
+        <!-- Renders a li element for every entry in the returned items array. 
+             Custom search filter "searchFor" takes the value of the
+             searchString model as an argument.
+         -->
+        <li ng-repeat="i in items | searchFor:searchString">
+            <a href="{{i.url}}"><img ng-src="{{i.image}}" /></a>
+            <!-- paragraph below should display title of item w/pic & url-->
+            <p>{{i.title}}</p>
+        </li>
+    </ul>
+</div>
+    
+    <!-- Fun Script Below For Users Opening The Console -->
+    <script>
+        if (window.console){
+            console.log('Hey human! we want MORE of your kid of people. Come join us - https://froogie.com/careers');
+        }
+    </script>
+    
+</body>
+</html>
