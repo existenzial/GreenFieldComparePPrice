@@ -2,6 +2,7 @@
 
 
 myApp = angular.module("booted");
+
 myApp.factory('FakeVoting', function clientIdFactory() {
   return {
     //love starts off as 0
@@ -10,28 +11,15 @@ myApp.factory('FakeVoting', function clientIdFactory() {
 });
    myApp.controller("FakeVotingNotWorthyCtrl", ['$rootScope','$scope','FakeVoting', fakeVotingFunc]);    
 
-    function fakeVotingFunc($scope, FakeVoting) {
-      // $scope.vote
-      console.log("FakeVoting", FakeVoting.love)
-      $scope.love = 0//FakeVoting.love
-        $scope.addLove = function() {
-            //add love
-            $FakeVoting.love++; 
-            $scope.love++;
+function fakeVotingFunc($scope, FakeVoting) {
+  // $scope.vote
+  console.log("FakeVoting", FakeVoting.love)
+  $scope.love = 0//FakeVoting.love
+    $scope.addLove = function() {
+        //add love
+        $FakeVoting.love++; 
+        $scope.love++;
 
-        };
+    };
 
-        // $scope.addHate = function() {
-        //     //they have not already hated the bootcamp
-        //     if (!votedFunc.hatedAlready) {
-        //         //add hate
-        //         votingFunc.hate++; 
-        //         //remember that we have already counted their hate
-        //         votedFunc.hatedAlready = true; 
-        //     }
-        //     if (lovedAlready) {
-        //         votingFunc.love--;
-        //         votedFunc.lovedAlready = false; 
-        //     }
-        // }
-    }
+};
