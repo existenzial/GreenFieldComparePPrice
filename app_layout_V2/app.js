@@ -15,7 +15,7 @@ var app = angular.module("booted", [])
             votes: ''
 		},
 		{
-			url: './schools/hackreactor.html',
+			url: './schools/tga.html',
 			title: 'Telegraph Academy',
             image_small: './images/bootcamp_images/tga_small.png',
 			image: './images/bootcamp_images/tga.png',
