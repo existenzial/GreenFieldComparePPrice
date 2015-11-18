@@ -14,6 +14,7 @@
     <!-- ng-app Declared -->
 <body ng-app="booted">
     <script src="app.js"></script>
+    <script src="FakeVotingNotWorthy.js"></script>
 <!-- Header Begin -->
     <header>
         <h1 class="font-effect-destruction font-effect-shadow-multiple">Boot/ed</h1>
@@ -26,11 +27,11 @@
     </header>
     
     <div id="main">
-	<!-- The navigation menu will get the value of the "active" variable as a class.
-		 The $event.preventDefault() stops the page from jumping when a link is clicked. -->
+    <!-- The navigation menu will get the value of the "active" variable as a class.
+         The $event.preventDefault() stops the page from jumping when a link is clicked. -->
 
-	   <nav class="{{active}}" ng-click="$event.preventDefault()">
-		<!-- When a link in the menu is clicked, we set the active variable -->
+       <nav class="{{active}}" ng-click="$event.preventDefault()">
+        <!-- When a link in the menu is clicked, we set the active variable -->
            <h2>
            <a href="#" class="about" ng-click="active='about'">Our Mission</a
             </h2>
@@ -41,19 +42,17 @@
        
     </div>
    
-
 	<ul ng-controller="bootListController">
-		<!-- Renders a li element for every entry in the returned items array. 
-			 Custom search filter "searchFor" takes the value of the
-			 searchString model as an argument.
-		 -->
 		<li ng-repeat="b in bootcampList">
 			<a href="{{b.url}}"><img ng-src="{{b.image}}" /></a><p>{{b.title}}</p>
-            <!-- paragraph below should display title of item w/pic & url-->
-			
+            <div ng-controller="FakeVotingNotWorthyCtrl">
+                <button ng-click="love = love + 1">Do you Loves?</button>
+            <div>
+                Loves!  {{love}}
+            </div>
+        </div>
 		</li>
 	</ul>
-</div>
     
     <!-- Fun Script Below For Users Opening The Console -->
     <script>
