@@ -2,9 +2,9 @@
 <html>
     
 <head>
-    <link rel="shortcut icon" type="image/png" href="./images/title_icon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="appstylesheet.css">
+    <link rel="shortcut icon" type="image/png" href="../images/title_icon.png">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../appstylesheet.css">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Alfa+Slab+One&effect=destruction|shadow-multiple|wallpaper">
 <!-- Scripts/Libraries -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
@@ -13,7 +13,7 @@
     
     <!-- ng-app Declared -->
 <body ng-app="booted">
-    <script src="app.js"></script>
+    <script src="../app.js"></script>
 <!-- Header Begin -->
     <header>
         <h1 class="font-effect-destruction font-effect-shadow-multiple">Boot/ed</h1>
@@ -47,20 +47,13 @@
 			 Custom search filter "searchFor" takes the value of the
 			 searchString model as an argument.
 		 -->
-		<li ng-repeat="b in bootcampList">
+		<li ng-model="b in bootcampList">
 			<a href="{{b.url}}"><img ng-src="{{b.image}}" /><p>{{b.title}}</p></a>
             <!-- paragraph below should display title of item w/pic & url-->
 			
 		</li>
 	</ul>
 </div>
-    
-    <!-- Fun Script Below For Users Opening The Console -->
-    <script>
-        if (window.console){
-            console.log('Hey human! we want MORE of your kind of people. Come join us - https://booted.com/careers');
-        }
-    </script>
-    
+
 </body>
 </html>
