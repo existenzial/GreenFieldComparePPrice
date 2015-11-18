@@ -45,12 +45,6 @@
 	<ul ng-controller="bootListController">
 		<li ng-repeat="b in bootcampList">
 			<a href="{{b.url}}"><img ng-src="{{b.image}}" /></a><p>{{b.title}}</p>
-            <div ng-controller="FakeVotingNotWorthyCtrl">
-                <button ng-click="love = love + 1">Do you Loves?</button>
-            <div>
-                Loves!  {{love}}
-            </div>
-        </div>
 		</li>
 	</ul>
     
