@@ -1,1 +1,1 @@
-web: node Bootcamp\ Rating/server.js
+web: node server.js
