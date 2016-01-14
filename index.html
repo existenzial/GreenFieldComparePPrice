@@ -1,73 +1,70 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<link rel="shortcut icon" type="image/png" href="/images/076953-black-ink-grunge-stamp-textures-icon-business-cart-solid.png">
-<title>Frugie</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/png" href="/images/076953-black-ink-grunge-stamp-textures-icon-business-cart-solid.png">
+    <title>Boot/ed</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" type="text/css" />
-	<script src="./node_modules/angular/angular.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-	<script src="search.js"></script>
 </head>
 
 <body ng-app="searchApp">
-<!-- Header Begin -->
+    <!-- Header Begin -->
     <header>
-        <h1>Froogie</h1>
-    <div align="right" class="main-div jumbotron">
-        <h2 align="right">for Every Human</h2>
-        <p align="right">save your scratch.</p>
-<!-- Sign-In Button -->
+        <h1>Boot/ed</h1>
+        <div align="right" class="main-div jumbotron">
+            <h2 align="right">for Every Human</h2>
+            <p align="right">save your scratch.</p>
+            <!-- Sign-In Button -->
             <button type="button" class="btn btn-default navbar">Sign in</button>
     </header>
-        
-<!-- Angular Search Box Begin -->
-        <form class="navbar-form" role="search">
-            <div class="form-group search">
+
+    <!-- Angular Search Box Begin -->
+    <form class="navbar-form" role="search">
+        <div class="form-group search">
             <label>Product Search:</label>
-                <input type="text" ng-model="product" class="input-medium search-query form-control" placeholder="scan it, buy it...done">
-            </div>
-<!-- Angular Search Controller Begin -->
-            <div class="search" ng-controller="SearchCtrl">
+            <input type="text" ng-model="product" class="input-medium search-query form-control" placeholder="scan it, buy it...done">
+        </div>
+        <!-- Angular Search Controller Begin -->
+        <div class="search" ng-controller="SearchCtrl">
             <button type="submit" class="btn btn-default  navbar-btn navbar-left" ng-click="search()">Submit</button>
-                
-                
-<!-- jQuery Script to Slide Down Results On Submit Below -->
+
+            <!-- jQuery Script to Slide Down Results On Submit Below -->
             <script>
-            $('.btn').on('submit', function () {
-              if ( $( "{{product-list}}" ).is( ":hidden" ) ) {
-                $( "div" ).slideDown( "slow" );
-              } else {
-                $( "div" ).hide();
-              }
-            });
-        </script>
-<!-- Angular Model Of Results -->
-            <pre ng-model="product-list">
-                {{product-list}}
-            </pre>
-<!-- The list of products available to buy from online results returned from Google CS API should appear here -->
-            </div>
-        </form>
+                $('.btn').on('submit', function() {
+                    if ($("{{product-list}}").is(":hidden")) {
+                        $("div").slideDown("slow");
+                    } else {
+                        $("div").hide();
+                    }
+                });
+            </script>
+
+            <!-- Angular Model Of Results -->
+            <pre ng-model="product-list"> {{product-list}} </pre>
+            <!-- The list of products available to buy from online results returned from Google CS API should appear here -->
+        </div>
+    </form>
     </div>
-    
-<!-- Fun Script Below For Users Opening The Console -->
+
+    <!-- Fun Script Below For Users Opening The Console -->
     <script>
-        if (window.console){
+        if (window.console) {
             console.log('Hey human! we want MORE of your kid of people. Come join us - https://froogie.com/careers');
         }
     </script>
-<!-- Start of Footer/Page-Bottom   -->
-		<footer></footer>		
+    <!-- Start of Footer/Page-Bottom   -->
+    <footer></footer>
     </form>
-   </div>
+    </div>
+    <!-- Scripts -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script src="search.js"></script>
 </body>
 
-</html> 
+</html>
