@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script type="text/javascript">
+
+var map;
+var marker;
+function initMap() {
+  var DevBootCamp = {lat: 37.784639, lng: -122.397233};
+  var TelegraphAcademy = {lat: 37.878097, lng: -122.269453};
+  var HackReactor = {lat: 37.783727, lng: -122.409024};
+  var hackBright = {lat: 37.788594, lng: -122.411492};
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 37.819412, lng: -122.345123},
+    zoom: 12
+  });
+  var devString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Hack Reactor</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Our Goal:</b>,You will begin Hack Reactor with a feeling of excitement and anticipation. '+
+      'Twelve weeks later, you will follow the footsteps of our trailblazing alumni, taking the methodologies '+
+      'and best practices you perfected at our coding bootcamp to your next job. We have built world class '+
+      'software engineering curriculum and programming courses. However, Hack Reactor is, above all else, '+
+      'a world-class learning environment.</p> '+
+      '<p><a href="http://www.hackreactor.com">'+
+      'www.hackreactor.com</a> '+
+      '</p>'+
+      '</div>'+
+      '</div>';
+
+  var hackReactorString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Hack Reactor</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Our Goal:</b>,You will begin Hack Reactor with a feeling of excitement and anticipation. '+
+      'Twelve weeks later, you will follow the footsteps of our trailblazing alumni, taking the methodologies '+
+      'and best practices you perfected at our coding bootcamp to your next job. We have built world class '+
+      'software engineering curriculum and programming courses. However, Hack Reactor is, above all else, '+
+      'a world-class learning environment.</p> '+
+      '<p>: Uluru, <a href="http://www.hackreactor.com">'+
+      'www.hackreactor.com</a> '+
+      '</p>'+
+      '</div>'+
+      '</div>';
+
+    var telegraphString = '<div id="content4">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Telegraph Academy</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Dear Reader,</b>, '+
+      'Albrey and I have brainstormed and discussed how to best serve our shared life mission of giving'+
+      'back to our communities with the resources and expertise we have gained over the years. Through '+
+      'these visionary coffee-break chats, Telegraph Academy has evolved to what you see it as today - a'+
+      'school that focuses on and serves the unique needs of people of color in the technology industry'+ 
+      'and trains them to become world-class Software Engineers. We want to tackle the challenges of' +
+      'diversity head on and put all our resources and spirits into preparing talented and motivated'+ 
+      'members of our community for rewarding careers in a growing industry.' +
+      'Deciding to become a Software Engineer, for both of us, has created a multitude of opportunities'+
+      'and a life of fulfilling work, and we want to share this gift with those who may not have considered' +
+      'such a transition possible in the past. Then each of our graduates will go out and continue to pay' +
+      'it forward to others and inspire them to do difficult things that can affect positive change here'+ 
+      'in Oakland and throughout the world.'+
+      'Warm Regards,'+
+      'Bianca Gandolfo & Albrey Brown'+
+      'P.S. Do you or your organization share our mission? Please reach out or join our community.</p> '+
+      '<p><a href="http://www.telegraphacademy.com">'+
+      'www.telegraphacademy.com</a> '+
+      '</p>'+
+      '</div>'+
+      '</div>';
+
+
+
+     var hackBrightString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Hack Reactor</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Our Goal:</b>You will begin Hack Reactor with a feeling of excitement and anticipation. '+
+      'Twelve weeks later, you will follow the footsteps of our trailblazing alumni, taking the methodologies '+
+      'and best practices you perfected at our coding bootcamp to your next job. We have built world class '+
+      'software engineering curriculum and programming courses. However, Hack Reactor is, above all else, '+
+      'a world-class learning environment.</p> '+
+      '<p><a href="http://www.hackreactor.com">'+
+      'www.hackreactor.com</a> '+
+      '</p>'+
+      '</div>'+
+      '</div>';
+ 
+
+
+
+
+
+
+
+      
+
+  var infowindow = new google.maps.InfoWindow({
+    content: devString,
+    content2: hackReactorString,
+    content3: hackBrightString,
+    content4: telegraphString
+  });
+  
+
+  // var marker = new google.maps.Marker({
+  //   position: TelegraphAcademy,
+  //   map: map,
+  //   title: 'TelegraphAcademy'
+  // });
+   marker2 = new google.maps.Marker({
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: {lat: 37.878097, lng: -122.269453}
+    // TGA
+  });
+   marker3 = new google.maps.Marker({
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: {lat: 37.788594, lng: -122.411492}
+    // HackBright
+  });
+   marker4 = new google.maps.Marker({
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: HackReactor
+    //Hack Reactor
+  });
+   marker5 = new google.maps.Marker({
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: {lat: 37.784639, lng: -122.397233}
+    //dev
+  });
+
+  // marker.addListener('click', toggleBounce);
+  marker4.addListener('click', function() {
+    infowindow.open(map, marker4);
+  });
+  marker2.addListener('click', function() {
+    infowindow.open(map, marker2);
+  });
+  marker3.addListener('click', function() {
+    infowindow.open(map, marker3);
+  });
+  marker5.addListener('click', function() {
+    infowindow.open(map, marker5);
+  });
+
+
+}
+//dev, telegraph, hack, makers square, hackbrite
+
+function toggleBounce() {
+  if (marker.getAnimation() !== null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?AIzaSyBNJ0vWVCZRhkTFzVVZnNk0OfBcszbokT0&callback=initMap">
+    </script>
+  </body>
+</html>

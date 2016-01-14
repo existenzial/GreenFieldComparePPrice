@@ -1,45 +1,60 @@
+<!DOCTYPE html>
 <html>
+    
 <head>
-	<title>Bootcamp Reviews</title>
-	<link href='css/bootstrap.css' rel='stylesheet'/>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
-	<script src='features/services/controller.js'></script>
+    <link rel="shortcut icon" type="image/png" href="./images/title_icon.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/appstylesheet.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Alfa+Slab+One&effect=destruction|shadow-multiple|wallpaper">
+<!-- Scripts/Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src='./features/services/controller.js'></script>
 </head>
+    
+    <!-- ng-app Declared -->
 <body ng-app="app">
-	<div class='container' ng-controller="bootcampCtrl">
-		<h1>Bootcamp Rating</h1>
-		<table class='table'>
-			<thead>
-				<tr>
-					<th>Comments</th>
-					<th>&nbsp</th>
-				</tr>
-				<tr>
-					<td>
-						<input class='form-control' ng-model='comments.post' placeholder='Comments'/>
-						<input class='form-control' ng-model='comments.name' placeholder='Name'/>
-					</td>
-					<td>
-						<button class='btn btn-primary' ng-click='create()'>Add</button>
-					</td>
+<!--    <script src="app.js"></script>-->
+    <script src="./js/FakeVotingNotWorthy.js"></script>
+<!-- Header Begin -->
+    <header>
+        <a href='./maps.html'><h1 class="font-effect-destruction font-effect-shadow-multiple">Boot/ed</h1></a>
 
-				</tr>
-				<tbody>
-					<tr ng-repeat='comments in mainComments'>
-						<td>
-							{{comments.post}}
-							<br></br>
-							Posted By: {{comments.name}}
-						</td>
-						<td>
-							<button ng-click='remove(comments._id)' class='btn btn-danger'>Remove</button>
-						</td>
-					</tr>
-			</thead>
-		</table>
-	</div>
+    <div align="right" class="main-div jumbotron">
+        <h2 align="right">Do the Homework</h2>
+        <p align="right">plan your future.</p>
+
+    </div>
+    </header>
+    
+    <div id="main">
+    <!-- The navigation menu will get the value of the "active" variable as a class.
+         The $event.preventDefault() stops the page from jumping when a link is clicked. -->
+
+       <nav class="{{active}}" ng-click="$event.preventDefault()">
+        <!-- When a link in the menu is clicked, we set the active variable -->
+           <h2>
+           <a href="#" class="about" ng-click="active='about'">Our Mission</a
+            </h2>
+	   </nav>
+               
+	   <p ng-hide="active">Train hard and get it done</p>
+	   <p ng-show="active">Is To Believe in You</p>
+       
+    </div>
+   
+	<ul ng-controller="bootListController">
+		<li ng-repeat="b in bootcampList">
+			<a href="{{b.url}}"><img ng-src="{{b.image}}" /></a><p>{{b.title}}</p>
+		</li>
+	</ul>
+    
+    <!-- Fun Script Below For Users Opening The Console -->
+    <script>
+        if (window.console){
+            console.log('Hey human! we want MORE of your kind of people. Come join us - https://booted.com/careers');
+        }
+    </script>
+    
 </body>
-
-
 </html>
-
