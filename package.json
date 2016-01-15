@@ -1,5 +1,5 @@
 {
-  "name": "bootcamp",
+  "name": "booted",
   "version": "0.1.5",
   "description": "server for app",
   "main": "server.js",
@@ -17,10 +17,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AutumnSkyScryscraper/GreenFieldComparePPrice.git"
+    "url": "https://github.com/AutumnSkyScryscraper/booted.git"
   },
   "keywords": [
     "node",
+    "angular",  
     "heroku",
     "express"
   ],

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <link rel="shortcut icon" type="image/png" href="../images/title_icon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/appstylesheet.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Alfa+Slab+One&effect=destruction|shadow-multiple|wallpaper">
+</head>
+    
+    <!-- ng-app Declared -->
+<body ng-app="booted">
+<!-- Header Begin -->
+    <header>
+        <h1 class="font-effect-destruction font-effect-shadow-multiple">Boot/ed</h1>
+    <div align="right" class="main-div jumbotron">
+        <h2 align="right">Do the Homework</h2>
+        <p align="right">plan your future.</p>
+    </div>
+    </header>
+    <div id="main">
+	<!-- The navigation menu will get the value of the "active" variable as a class.
+		 The $event.preventDefault() stops the page from jumping when a link is clicked. -->
+
+	   <nav class="{{active}}" ng-click="$event.preventDefault()">
+		<!-- When a link in the menu is clicked, we set the active variable -->
+           <h2>
+           <a href="#" class="about" ng-click="active='about'">Our Mission</a
+            </h2>
+	   </nav>
+
+	   <!-- ng-show will show an element if the value in the quotes meis truthful,
+		 & ng-hide does the opposite. If active variable is not set
+		 initially, first paragraph will display. -->
+	   <p ng-hide="active">Train hard and get it done</p>
+	   <p ng-show="active">Is To Believe in You</p>
+        <!-- Insert top returned li results between emphasis<em> tags maybe? -->    
+    </div>
+<!--  Begin of Signin -->
+    <div class="container">
+        <div class="jumbotron" style="padding-bottom:0px;">
+            <h2>Create An Account</h2>
+        </div>
+            <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <label for="inputName" class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-4">
+          <input class="form-control" id="inputName3" placeholder="Name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-4">
+          <input class="form-control" id="inputEmail" placeholder="Email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label type="inputPassword" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-4">
+          <input type="password" class="form-control" placeholder="Password">
+        </div>
+      </div>
+                
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+<!-- If Sign-Up Button is clicked and user account authenticated, User is routed back to index-->      
+            <a href="../index.html"><button type="button" class="btn btn-lg btn-primary btn-block">Sign Up</button></a>
+        </div>
+      </div>
+    </form>
+ 
+    </div>
+    <!-- Scripts/Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script src="../js/lib/angular.min.js"></script>  
+    <script src="../js/app.js"></script>
+    <script src="../js/appcontroller.js"></script>       
+</body>
+</html>
