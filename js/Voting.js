@@ -1,4 +1,4 @@
-// //ISSUE with this is that the logic does not hold for users.The likes and dislikes are not added or subtracted according to individual users. The code does not check wheter that individual user has already voted, instead it checks if voting has already been done on the page.
+// //ISSUE with this is that the logic does not hold for users.The likes and dislikes are not added or subtracted according to individual users. The code does not check whether that individual user has already voted, instead it checks if voting has already been done on the page.
 
 
 // angular.module("booted")
