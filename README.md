@@ -13,4 +13,4 @@ Additional functionality to search for camps outside of your area to be added la
 
 Download the latest version on [iOS](https://itunes.apple.com/us/app/booted/id364355046?mt=8) or [Android](https://play.google.com/store/search?q=booted&c=apps&hl=en) 
 
-### [Plan Your Future - Try Out the App Today](http://booted.herokapp.com/)
+### [Plan Your Future - Try Out the App Today](http://booted.herokuapp.com/)
