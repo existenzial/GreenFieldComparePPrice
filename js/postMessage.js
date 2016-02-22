@@ -1,7 +1,7 @@
 // angular.module("booted")
-     .controller('submitCtrl',['$rootScope','$scope', '$http', function($rootScope,$scope,$http) {
- //submit function for new user
-       $scope.submit = function() {
+    .controller('submitCtrl',['$rootScope','$scope', '$http', function($rootScope,$scope,$http) {
+    //submit function for new user
+        $scope.submit = function() {
          //if there is text
          if ($scope.text) {
            //increment id
@@ -14,7 +14,7 @@
              id: num,
              name: data[0]
            };
-           //send the informatioon to the server
+           //send the information to the server
          $http.post('http://localhost:3000/api/users', JSON.stringify(informationToSend));
          ///empty the text box
          $scope.text = '';
