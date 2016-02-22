@@ -1,7 +1,6 @@
 var express = require('express');
 var stormpath = require('express-stormpath');
 var mongojs = require('mongojs');
-var mongodb = require('mongodb');
 var mongoose = require('mongoose');
 
 var databaseUrl = process.env.MONGOLAB_URI;
@@ -12,8 +11,7 @@ var utils = require("./js/utils.js");
 var bodyParser = require('body-parser');
 
 var app = express();
-app.set('port', (process.env.PORT || 5000));
-
+app.set('port', (process.env.PORT || 3000));
 
 app.use(express.static(__dirname + '/'));
 var jsonParser = bodyParser.json(); 
@@ -33,12 +31,7 @@ app.use(stormpath.init(app,
 ));
 
 app.get('/', stormpath.loginRequired, function(req, res){
-    if(req.user.authenticated){
         res.send('Logged in.');
-        return;
-    } else {
-        res.redirect('/login');
-    } 
 });
 
 app.get('/profile', stormpath.loginRequired, function(req, res){
@@ -78,7 +71,6 @@ app.delete('/mainComments/:id', function(req, res) {
 	})
 });
 
-app.listen(3000);
 app.listen(app.get('port'), function() {
     console.log('Running on port ', app.get('port'));
 });
