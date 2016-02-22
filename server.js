@@ -12,7 +12,7 @@ var utils = require("./js/utils.js");
 var bodyParser = require('body-parser');
 
 var app = express();
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 3000));
 
 
 app.use(express.static(__dirname + '/'));
@@ -33,7 +33,12 @@ app.use(stormpath.init(app,
 ));
 
 app.get('/', stormpath.loginRequired, function(req, res){
-    res.send("Logged in."); 
+    if(req.user.authenticated){
+        res.send('Logged in.');
+        return;
+    } else {
+        res.redirect('/login');
+    } 
 });
 
 app.get('/profile', stormpath.loginRequired, function(req, res){
@@ -73,7 +78,7 @@ app.delete('/mainComments/:id', function(req, res) {
 	})
 });
 
-app.listen(3000);
+//app.listen(3000);
 app.listen(app.get('port'), function() {
- console.log('Running on port ', app.get('port'));
+    console.log('Running on port ', app.get('port'));
 });
