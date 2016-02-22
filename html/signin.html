@@ -40,6 +40,11 @@
                 <button type="button" class="btn btn-lg btn-primary btn-block">Register</button>
             </a>
         </form>
+        <!-- Facebook Login -->
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+        <div id="status">
+        </div>
     </div>
     </script>
     <!-- Scripts/Libraries -->

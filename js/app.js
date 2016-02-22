@@ -54,7 +54,7 @@ angular.module('booted', [])
                     id: num,
                     name: data[0]
                 };
-                //send the informatioon to the server
+                //send the information to the server
                 $http.post('http://localhost:3000/api/users', JSON.stringify(informationToSend));
                 ///empty the text box
                 $scope.text = '';

@@ -1,29 +1,51 @@
 var express = require('express');
+var stormpath = require('express-stormpath');
 var mongojs = require('mongojs');
+var mongodb = require('mongodb');
+var mongoose = require('mongoose');
 
-var databaseUrl = 'database';
+var databaseUrl = process.env.MONGOLAB_URI;
 var collections = ['mainComments'];
 var db = mongojs(databaseUrl, collections);
-//session for log in 
-var session = require('express-session');
-//utils for log in 
+
 var utils = require("./js/utils.js");
+var bodyParser = require('body-parser');
 
 var app = express();
 app.set('port', (process.env.PORT || 5000));
 
-var bodyParser = require('body-parser');
 
 app.use(express.static(__dirname + '/'));
 var jsonParser = bodyParser.json(); 
 //parses request.body (undefined String) into a JSON object
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
+//sets up middleware for stormpath library
+app.use(stormpath.init(app, 
+	{
+		apiKeyId: process.env.STORMPATH_API_KEY_ID,
+		apiKeySecret: process.env.STORMPATH_API_KEY_SECRET,
+		secretKey: process.env.STORMPATH_SECRET_KEY,
+		application: process.env.STORMPATH_URL,
+		website: true,
+		//environment variables read from heroku config, once added to your heroku project
+	}
+));
+
+app.get('/', stormpath.loginRequired, function(req, res){
+    res.send("Logged in."); 
+});
+
+app.get('/profile', stormpath.loginRequired, function(req, res){
+	//user must be logged in to see their profile details
+	res.json(req.user);
+});
+
 // Retrieves comments from the database
 app.get('/mainComments', function(req, res) {
 	db.mainComments.find(function(err, docs) {
 		res.json(docs);
-	})
+	});
 });
 
 // Parses the body and creates a JSON object
@@ -32,7 +54,7 @@ app.post('/mainComments', jsonParser, function(req, res) {
 	db.mainComments.insert(svc, function(err, doc) {
 		res.json(doc);
 	}); //inserts data into the database
-})
+});
 
 // Retrieves specific id from the database
 app.get('/mainComments/:id', function(req, res) {
@@ -49,7 +71,7 @@ app.delete('/mainComments/:id', function(req, res) {
 	db.mainComments.remove({_id: mongojs.ObjectId(id)}, function(err, doc) {
 		res.json(doc);
 	})
-})
+});
 
 app.listen(3000);
 app.listen(app.get('port'), function() {
