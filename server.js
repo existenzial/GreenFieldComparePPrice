@@ -30,7 +30,15 @@ app.use(stormpath.init(app,
 	}
 ));
 
-app.get('/', stormpath.loginRequired, function(req, res){
+var requireLogin = function(req, res, next){
+    if(!req.user){
+        res.redirect('/login');
+    } else {
+        next();
+    }
+};
+
+app.get('/', requireLogin, function(req, res){
         res.send('Logged in.');
 });
 
