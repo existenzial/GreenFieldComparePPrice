@@ -1,0 +1,14 @@
+# Logs #
+######################
+*.log
+
+# Build Systems #
+######################
+node_modules/
+bower_components/
+
+# OS Generated Files #
+######################
+.DS_Store
+.Trashes
+.Thumbs.db

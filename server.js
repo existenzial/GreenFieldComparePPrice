@@ -1,29 +1,56 @@
 var express = require('express');
+var stormpath = require('express-stormpath');
 var mongojs = require('mongojs');
+var mongodb = require('mongodb');
+var mongoose = require('mongoose');
 
-var databaseUrl = 'database';
+var databaseUrl = process.env.MONGOLAB_URI;
 var collections = ['mainComments'];
 var db = mongojs(databaseUrl, collections);
-//J:added session for log in. 
-var session = require('express-session');
-//J:added utils for log in. 
-var utils = require("./app_layout_V2/utils.js");
 
-
-var app = express();
-app.set('port', (process.env.PORT || 5000));
-
+var utils = require("./js/utils.js");
 var bodyParser = require('body-parser');
 
-app.use(express.static(__dirname + '/public'));
-var jsonParser = bodyParser.json(); //parses request.body (undefined String) into a JSON object
+var app = express();
+app.set('port', (process.env.PORT || 3000));
+
+
+app.use(express.static(__dirname + '/'));
+var jsonParser = bodyParser.json(); 
+//parses request.body (undefined String) into a JSON object
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-// Retrieves the comments from the database
+//sets up middleware for stormpath library
+app.use(stormpath.init(app, 
+	{
+		apiKeyId: process.env.STORMPATH_API_KEY_ID,
+		apiKeySecret: process.env.STORMPATH_API_KEY_SECRET,
+		secretKey: process.env.STORMPATH_SECRET_KEY,
+		application: process.env.STORMPATH_URL,
+		website: true,
+		//environment variables read from heroku config, once added to your heroku project
+	}
+));
+
+app.get('/', stormpath.loginRequired, function(req, res){
+    if(req.user.authenticated){
+        res.send('Logged in.');
+        return;
+    } else {
+        res.redirect('/login');
+    } 
+});
+
+app.get('/profile', stormpath.loginRequired, function(req, res){
+	//user must be logged in to see their profile details
+	res.json(req.user);
+});
+
+// Retrieves comments from the database
 app.get('/mainComments', function(req, res) {
 	db.mainComments.find(function(err, docs) {
 		res.json(docs);
-	})
+	});
 });
 
 // Parses the body and creates a JSON object
@@ -32,9 +59,9 @@ app.post('/mainComments', jsonParser, function(req, res) {
 	db.mainComments.insert(svc, function(err, doc) {
 		res.json(doc);
 	}); //inserts data into the database
-})
+});
 
-// Retrieves a specific id from the database
+// Retrieves specific id from the database
 app.get('/mainComments/:id', function(req, res) {
 	var id = req.params.id;
 	db.mainComments.findOne({_id: mongojs.ObjectId(id)}, function(err, doc){
@@ -42,16 +69,16 @@ app.get('/mainComments/:id', function(req, res) {
 	});
 });
 
-// Deletes a comment object with a specific id
+// Deletes comment object with a specific id
 app.delete('/mainComments/:id', function(req, res) {
 	var id = req.params.id;
-	console.log('hey', id);
+	console.log('user ', id);
 	db.mainComments.remove({_id: mongojs.ObjectId(id)}, function(err, doc) {
 		res.json(doc);
 	})
-})
+});
 
-app.listen(3000);
+//app.listen(3000);
 app.listen(app.get('port'), function() {
- console.log('Node app is running on port', app.get('port'));
+    console.log('Running on port ', app.get('port'));
 });

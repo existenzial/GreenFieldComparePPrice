@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="shortcut icon" type="image/png" href="../images/title_icon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/appstylesheet.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&effect=destruction|shadow-multiple">
+</head>
+
+<!-- ng-app Declared -->
+<body ng-app="booted">
+    <!-- Header Begin -->
+    <header>
+        <h1 class="font-effect-destruction font-effect-shadow-multiple">Boot/ed</h1>
+        <div align="right" class="main-div jumbotron">
+            <h2 align="right">Do the Homework</h2>
+            <p align="right">plan your future.</p>
+        </div>
+    </header>
+    <div id="main">
+        <nav class="{{active}}" ng-click="$event.preventDefault()">
+            <h2>
+               <a href="#" class="about" ng-click="active='about'">Our Mission</a>
+           </h2>
+        </nav>
+
+        <p ng-hide="active">Train hard and get it done</p>
+        <p ng-show="active">Is To Believe in You</p>
+    </div>
+    <!--  Begin of Signin -->
+    <div class="container">
+        <div class="jumbotron" style="padding-bottom:0px;">
+            <h2>Log In</h2>
+        </div>
+        <form class="form-signin" role="form">
+            <input type="email" class="form-control" placeholder="Email address" required="" autofocus="">
+            <input type="password" class="form-control" placeholder="Password" required="">
+            <a href="./register.html">
+                <button type="button" class="btn btn-lg btn-primary btn-block">Register</button>
+            </a>
+        </form>
+        <!-- Facebook Login -->
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+        <div id="status">
+        </div>
+    </div>
+    </script>
+    <!-- Scripts/Libraries -->
+    <script src="../js/lib/angular.min.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+
+</html>
