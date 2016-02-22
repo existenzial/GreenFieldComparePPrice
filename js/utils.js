@@ -1,9 +1,9 @@
-/*var isLoggedIn = function(req) {
+var isLoggedIn = function(req) {
   return req.session ? !!req.session.user : false;
 };
 
 exports.checkUser = function(req, res, next){
-  if (!isLoggedIn(req)) {
+  if (!isLoggedIn(req.user)) {
     res.redirect('/login');
   } else {
     next();
@@ -15,7 +15,7 @@ exports.createSession = function(req, res, newUser) {
       req.session.user = newUser;
       res.redirect('/');
     });
-};*/
+};
 
 //Facebook Authentication Script
   // This is called with the results from from FB.getLoginStatus().
