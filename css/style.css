@@ -10,6 +10,7 @@ body{
 }
 
 a, a:visited {
+    text-decoration-style: dotted;
 	outline:none;
 	color:#389dc1;
 }
