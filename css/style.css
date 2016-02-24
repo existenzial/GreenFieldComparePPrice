@@ -10,9 +10,12 @@ body{
 }
 
 a, a:visited {
-    text-decoration-style: dotted;
 	outline:none;
 	color:#389dc1;
+}
+
+a {
+    text-decoration: underline dotted lightgray;
 }
 
 a:hover{
