@@ -46,8 +46,30 @@ var requireLogin = function(req, res, next){
     }
 };
 
-app.get('/', requireLogin, function(req, res){
+app.get('/', stormpath.loginRequired, function(req, res){
     res.send('Logged in.');
+});
+
+app.get('/login', function(req, res){
+    if(req.user){
+        res.redirect('/');
+    } else {
+        res.redirect('/login');
+    }
+});
+
+app.post('/login', function(req, res){
+    if(req.user){
+        res.send('Logged in');
+        res.redirect('/');
+    } else {
+        res.redirect('/login');
+    }
+});
+
+app.post('/register', function(req, res){
+    res.send('Account registered');
+    res.redirect('/login');
 });
 
 app.get('/logout', function(req, res){
