@@ -26,6 +26,7 @@ app.use(stormpath.init(app,
 		secretKey: process.env.STORMPATH_SECRET_KEY,
 		application: process.env.STORMPATH_URL,
 		website: true,
+		enableForgotPassword: true,
 		//environment variables read from heroku config, once added to your heroku project
 	}
 ));
