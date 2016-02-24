@@ -40,7 +40,11 @@ var requireLogin = function(req, res, next){
 };
 
 app.get('/', requireLogin, function(req, res){
-        res.send('Logged in.');
+    res.send('Logged in.');
+});
+
+app.get('/logout', function(req, res){
+	res.redirect('/login');
 });
 
 app.get('/profile', stormpath.loginRequired, function(req, res){
