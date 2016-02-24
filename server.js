@@ -29,8 +29,10 @@ app.use(stormpath.init(app,
 		enableForgotPassword: true,
         enableFacebook: true,
         social: {
-            appId: process.env.FB_APP_ID,
-            appSecret: process.env.FB_SECRET_KEY,
+            facebook: {
+                appId: process.env.FB_APP_ID,
+                appSecret: process.env.FB_SECRET_KEY,
+            },
         },
 		//environment variables read from heroku config, once added to your heroku project
 	}
